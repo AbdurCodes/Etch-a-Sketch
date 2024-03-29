@@ -24,12 +24,14 @@ let girdSizeBtn = document.getElementById('girdSizeBtn');
 function chooseGridSize() {
     // container.style = "border: 11px solid blue;";
     let gridSize = parseInt(prompt("Plz enter the grid size (e.g 8 for 8x8 grid): ", 10));
-    if (gridSize > 30) {
-        alert('WARNING! Plz enter grid size not greater than 30')
-    }
-    else {
-        gridRemover();
-        gridGenerator(gridSize);
+    if (gridSize) {
+        if (gridSize > 30) {
+            alert('WARNING! Plz enter grid size not greater than 30')
+        }
+        else {
+            gridRemover();
+            gridGenerator(gridSize);
+        }
     }
 }
 
