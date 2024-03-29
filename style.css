@@ -5,10 +5,21 @@
 }
 
 .container{
-    border: 1px solid black;
+    border: 2px solid black;
     width: 800px;
     height: 500px;
     display: flex;
     margin: 50px auto 0px;
     flex-wrap: wrap;
+}
+
+.girdSize{
+    text-align: center;
+    margin-top: 22px;
+
+    & button {
+        width: 142px;
+        height: 33px;
+        font-size: 1rem;
+    }
 }
