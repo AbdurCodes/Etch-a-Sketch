@@ -1,4 +1,4 @@
-function gridGenerator(gridSize) {
+function gridGenerator(gridSize=16) {
     for (let i = 0; i < gridSize; i++) {
         for (let j = 0; j < gridSize; j++) {
             let div = document.createElement('div');
@@ -11,6 +11,7 @@ function gridGenerator(gridSize) {
     }
 }
 
+
 function gridRemover() {
     let gridItems = document.querySelectorAll('.gridItem');
     for (let gridItem of gridItems) {
@@ -18,11 +19,8 @@ function gridRemover() {
     }
 }
 
-let container = document.querySelector('.container');
-let girdSizeBtn = document.getElementById('girdSizeBtn');
 
 function chooseGridSize() {
-    // container.style = "border: 11px solid blue;";
     let gridSize = parseInt(prompt("Plz enter the grid size (e.g 8 for 8x8 grid): ", 10));
     if (gridSize) {
         if (gridSize > 30) {
@@ -31,12 +29,32 @@ function chooseGridSize() {
         else {
             gridRemover();
             gridGenerator(gridSize);
+            changeColorEvent();
         }
     }
 }
 
+
+function changeColorEvent(){
+    let gridItems = document.querySelectorAll('.gridItem');
+    for (let gridItem of gridItems) {
+        gridItem.addEventListener('mouseover', changeColor);
+    }
+}
+
+
+function changeColor(e){
+    let target = e.target;
+    target.style.backgroundColor = 'green';
+}
+
+
+let container = document.querySelector('.container');
+let girdSizeBtn = document.getElementById('girdSizeBtn');
+
 girdSizeBtn.addEventListener('click', chooseGridSize);
 
-gridGenerator(16);
+gridGenerator();
 // gridGenerator(1); // creates grid of 1x1
 // gridGenerator(0); // will create a grid of 0x0; won't clear the previous grid
+changeColorEvent();
