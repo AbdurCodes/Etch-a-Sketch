@@ -42,10 +42,20 @@ function changeColorEvent(){
     }
 }
 
-
+let opacity = 0.1;
 function changeColor(e){
     let target = e.target;
-    target.style.backgroundColor = 'green';
+    let redValue = Math.floor(Math.random() * 256);
+    let greenValue = Math.floor(Math.random() * 256);
+    let blueValue = Math.floor(Math.random() * 256);
+    target.style.backgroundColor = `rgba(${redValue},${greenValue},${blueValue},${opacity})`;
+    if (opacity <= 1.0) {
+        opacity += 0.1;
+    }
+    else {
+        opacity = 0.1;
+    }
+    // console.log(opacity);
 }
 
 
